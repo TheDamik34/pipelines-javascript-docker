@@ -21,4 +21,4 @@ steps:
   inputs:
     containerRegistry: '$(dockerHub)'
     repository: '$(imageName)'
-    command: 'push'
+    command: 'push thedamik34/'
