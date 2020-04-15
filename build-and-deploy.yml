@@ -21,6 +21,3 @@ steps:
     containerRegistry: 'devops-test'
     repository: '$(imageName)'
     command: 'push'
-    tags: |
-      test1
-      test2
