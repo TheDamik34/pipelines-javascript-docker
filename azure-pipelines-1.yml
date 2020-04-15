@@ -14,3 +14,16 @@ steps:
     repository: $(imageName)
     command: build
     Dockerfile: app/Dockerfile
+- task: Docker@2
+  inputs:
+    containerRegistry: 'dockerHub'
+    command: 'login'
+- task: Docker@2
+  inputs:
+    containerRegistry: 'dockerHub'
+    repository: '$(imageName)'
+    command: 'push'
+- task: Docker@2
+  inputs:
+    containerRegistry: 'dockerHub'
+    command: 'logout'
