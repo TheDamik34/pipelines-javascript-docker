@@ -6,6 +6,7 @@ pool:
 
 variables:
   imageName: 'pipelines-javascript-docker'
+  dockerHub: 'dockerHub'
 
 steps:
 - task: Docker@2
@@ -18,6 +19,6 @@ steps:
 - task: Docker@2
   displayName: Push image
   inputs:
-    containerRegistry: 'devops-test'
+    containerRegistry: '$(dockerHub)'
     repository: '$(imageName)'
     command: 'push'
