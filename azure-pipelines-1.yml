@@ -8,25 +8,27 @@ variables:
   imageName: 'pipelines-javascript-docker'
 
 steps:
-  - task: Docker@2
-    displayName: Build an image
-    inputs:
-      repository: $(imageName)
-      command: build
-      Dockerfile: app/Dockerfile
-  - task: Docker@2
-    displayName: Login
-    inputs:
-      containerRegistry: 'dockerHub'
-      command: 'login'
-  - task: Docker@2
-    displayName: Push image
-    inputs:
-      containerRegistry: 'dockerHub'
-      repository: 'thedamik34/$(imageName)'
-      command: 'push'
-  - task: Docker@2
-    displayName: Logout
-    inputs:
-      containerRegistry: 'dockerHub'
-      command: 'logout'
+- task: Docker@2
+  displayName: Build an image
+  inputs:
+    containerRegistry: 'dockerHub'
+    repository: 'thedamik34/$(imageName)'
+    command: 'build'
+    Dockerfile: 'app/Dockerfile'
+- task: Docker@2
+  displayName: Login
+  inputs:
+    containerRegistry: 'dockerHub'
+    command: 'login'
+
+- task: Docker@2
+  displayName: Push image
+  inputs:
+    containerRegistry: dockerHub
+    repository: 'thedamik34/$(imageName)'
+    command: 'push'
+- task: Docker@2
+  displayName: Logout
+  inputs:
+    containerRegistry: dockerHub
+    command: 'logout'
