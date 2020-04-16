@@ -12,7 +12,6 @@ steps:
   displayName: Build an image
   inputs:
     containerRegistry: 'dockerHub'
-    repository: 'thedamik34/devops-test'
     command: 'build'
     Dockerfile: 'app/Dockerfile'
 
@@ -25,8 +24,8 @@ steps:
 - task: Docker@2
   displayName: Push image
   inputs:
-    containerRegistry: dockerHub
-    repository: 'thedamik34/devops-test'
+    containerRegistry: 'dockerHub'
+    repository: 'devops-test'
     command: 'push'
 
 - task: Docker@2
