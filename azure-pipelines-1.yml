@@ -12,7 +12,7 @@ steps:
   displayName: Build an image
   inputs:
     containerRegistry: 'dockerHub'
-    repository: '$(imageName)'
+    repository: 'thedamik34/devops-test'
     command: 'build'
     Dockerfile: 'app/Dockerfile'
     tags: 'nazwa1'
