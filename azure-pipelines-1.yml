@@ -12,8 +12,10 @@ steps:
   displayName: Build an image
   inputs:
     containerRegistry: 'dockerHub'
+    repository: '$(imageName)'
     command: 'build'
     Dockerfile: 'app/Dockerfile'
+    tags: 'nazwa1'
 
 - task: Docker@2
   displayName: Login
@@ -25,8 +27,9 @@ steps:
   displayName: Push image
   inputs:
     containerRegistry: 'dockerHub'
-    repository: 'devops-test'
+    repository: 'thedamik34/devops-test'
     command: 'push'
+    tags: 'nazwa1'
 
 - task: Docker@2
   displayName: Logout
